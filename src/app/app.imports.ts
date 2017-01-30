@@ -13,7 +13,8 @@ import { routes } from './app.routing';
 import { rootReducer } from './reducers';
 import { StoreDevToolsModule } from './features/store-devtools.module';
 import { UserEffects } from './user/user.effects';
-
+import { HomeModule } from './home/home.module';
+import { SharedModule } from './shared/shared.module';
 const STORE_DEV_TOOLS_IMPORTS = [];
 if (ENV === 'development' && !AOT &&
   ['monitor', 'both'].includes(STORE_DEV_TOOLS) // set in constants.js file in project root
@@ -30,6 +31,8 @@ export const APP_IMPORTS = [
   EffectsModule.run(UserEffects),
   MaterialModule.forRoot(),
   ReactiveFormsModule,
+  HomeModule,
+  SharedModule,
   IdlePreloadModule.forRoot(), // forRoot ensures the providers are only created once
   RouterModule.forRoot(routes, { useHash: false, preloadingStrategy: IdlePreload }),
   RouterStoreModule.connectRouter(),

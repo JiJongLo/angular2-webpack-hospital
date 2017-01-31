@@ -3,21 +3,20 @@ import { ActionReducer, combineReducers } from '@ngrx/store';
 import { storeFreeze } from 'ngrx-store-freeze';
 import { storeLogger } from 'ngrx-store-logger';
 import { routerReducer, RouterState } from '@ngrx/router-store';
-
-import * as fromUser from '../user/user.reducer';
+import * as fromPatient from '../patient/patient.reducer';
 
 const modules = {
-  'user': fromUser
+  'patients' : fromPatient
 };
 
 export interface AppState {
   router: RouterState;
-  user: fromUser.UserState;
+  patients: fromPatient.PatientsState;
 }
 
 export const reducers = {
   router: routerReducer,
-  user: fromUser.userReducer
+  patients: fromPatient.patientReducer
 };
 
 // Generate a reducer to set the root state in dev mode for HMR

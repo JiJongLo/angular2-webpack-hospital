@@ -28,9 +28,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
     this.form = fb.group({
       name: ''
     });
-    this.user$ = this.store.select(state => state.user.user);
-    this.user$.takeUntil(this.destroyed$)
-      .subscribe(user => { this.user = user; });
+    // this.user$ = this.store.select(state => state.user.user);
+    // this.user$.takeUntil(this.destroyed$)
+    //   .subscribe(user => { this.user = user; });
   }
 
   ngOnInit() {

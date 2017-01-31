@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Albert Johnots",
+    "id": 111,
+    "fullAddress": "Ukraine, Kiev, str. Tarasa Shevshenka, 32323",
+    "birthDay" : "17.05.1992"
+  },
+  {
+    "name": "Steven Sigal",
+    "id": 112,
+    "fullAddress": "Ukraine, Zytomyr, Zytomyrska obl. str. Tarasa Shevshenka, 12353",
+    "birthDay" : "14.07.1092"
+  },
+  {
+    "name": "Dolf Loongrent",
+    "id": 113,
+    "fullAddress": "Ukraine, Zadryshansk, Sumska obl, str. Tarasa Bulaba, 212212",
+    "birthDay" : "13.02.1000"
+  },
+  {
+    "name": "Arnold Shwarznegeer",
+    "id": 114,
+    "fullAddress": "Germany, Berlinska obl, Berlin,  str. Ostapa Bandery, 21212",
+    "birthDay" : "17.12.1992"
+  },
+  {
+    "name": "Petro Symonenko",
+    "id": 115,
+    "fullAddress": "Ukraine, Kiev, str. Bolshaya Pobeda, 32323",
+    "birthDay" : "11.04.1992"
+  }
+]

@@ -1,0 +1,60 @@
+{
+  "diagnoses" : [
+    {
+      "info": "Abdominal Migraines in Children and Adults",
+      "code": "045611",
+      "removed": false,
+      "addedDate": "31.11.1995",
+      "removedDate": null,
+      "patientId" : 111
+    },
+    {
+      "info": "Acquired Brain Injury (Brain Damage: Symptoms, Causes, Treatment)",
+      "code": "045521",
+      "addedDate": "12.10.1997",
+      "patientId" : 111,
+      "removed": false,
+      "removedDate": null
+    },
+    {
+      "info": "Addison Anemia (Pernicious Anemia)",
+      "code": "054313",
+      "patientId" : 111,
+      "addedDate": "10.10.1997",
+      "removed": false,
+      "removedDate": null
+    },
+    {
+      "info": "Adults, Abdominal Migraine (Abdominal Migraines in Children and Adults)",
+      "code": "045021",
+      "patientId" : 111,
+      "addedDate": "5.05.1998",
+      "removed": false,
+      "removedDate": null
+    },
+    {
+      "info": "Albinism (Birthmarks and Other Skin Pigmentation Problems)",
+      "code": "044951",
+      "patientId" : 111,
+      "addedDate": "15.07.1998",
+      "removed": true,
+      "removedDate": "25.11.2016"
+    },
+    {
+      "info": "Allergy to Milk (Lactose Intolerance)",
+      "code": "044951",
+      "patientId" : 112,
+      "addedDate": "5.05.2015",
+      "removed": false,
+      "removedDate": null
+    },
+    {
+      "info": "Allergy to Milk (Lactose Intolerance)",
+      "code": "044951",
+      "patientId" : 112,
+      "addedDate": "05.05.2015",
+      "removed": true,
+      "removedDate": "30.11.2015"
+    }
+  ]
+}

@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '../../shared/shared.module';
 import { MaterialModule } from '@angular/material';
 import { FormsModule }   from '@angular/forms';
+import { PatientActions } from '../../patient/patient.actions';
+import { PatientService } from '../../patient/patient.service';
 
 
 @NgModule({
@@ -13,6 +15,6 @@ import { FormsModule }   from '@angular/forms';
     HomeComponent
   ],
   exports: [HomeComponent],
-  providers: []
+  providers: [PatientActions, PatientService]
 })
 export class HomeModule { }

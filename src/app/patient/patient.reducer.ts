@@ -19,9 +19,14 @@ export const initialState: PatientsState = {
 
 export function patientReducer(state = initialState, action: Action): PatientsState {
   switch (action.type) {
-    case PatientActions.EDIT_PATIENT: {
+    case PatientActions.EDIT_PATIENT : {
       return Object.assign({}, state, {
         user: action.payload
+      });
+    }
+    case PatientActions.GETTING_PATIENTS_SUCCESS : {
+      return Object.assign({}, state, {
+        listPatients: action.payload
       });
     }
     default: {

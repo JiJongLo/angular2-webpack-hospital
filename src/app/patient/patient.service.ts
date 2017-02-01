@@ -12,7 +12,7 @@ export class PatientService extends RequestBase {
   }
 
   getPatients(): Observable<string> {
-    return this.http.get(`${API_BASE_URL}/patients.json`)
+    return this.http.get(`${API_BASE_URL}/assets/patients.json`)
       .map(res => res.json());
   }
 }

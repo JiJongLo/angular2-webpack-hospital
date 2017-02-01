@@ -1,0 +1,32 @@
+<md-toolbar class="toolbar-list" [style.display]="diagnosis.info ? 'block' : 'none'">Edit diagnosis:</md-toolbar>
+<md-toolbar class="toolbar-list" [style.display]="patientInfo ? 'block' : 'none'">Edit patient:</md-toolbar>
+<md-toolbar class="toolbar-list" [style.display]="diagnosis.info || patientInfo ? 'none' : 'block'">Add diagnosis:</md-toolbar>
+<form *ngIf="!patientInfo" (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <div class="col l6 m12 s12">
+    <div class="form-group">
+      <label for="code" data-error="Must be number">Code *</label>
+      <input  type="text" minlength="6"  [(ngModel)]="diagnosis.code" name="code" class="form-control validate" id="code" #code="ngModel"  pattern="^\d+$" required>
+        <div *ngIf="code.errors && (code.dirty || code.touched)"
+             class="alert alert-danger">
+           <div [hidden]="!code.required">
+                Code is required
+           </div>
+           <div [hidden]="!code.minlength">
+                Code must be at least 6 characters long.
+           </div>
+        </div>
+    </div>
+  </div>
+    <div class="row">
+        <div class="col l6 m12 s12">
+            <div class="form-group">
+                <label data-error="Name is required" for="info">Diagnosis *</label>
+                <input type="text" [(ngModel)]="diagnosis.info" name="info" class="form-control validate" id="info"  minlength="3"  #info="ngModel" required>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s4"> <button md-button  type="submit" >Save</button></div>
+    </div>
+</form>
+<patient-edit *ngIf="patientInfo" [patient]="patient"></patient-edit>

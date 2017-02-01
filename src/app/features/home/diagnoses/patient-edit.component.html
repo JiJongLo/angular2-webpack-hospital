@@ -1,0 +1,25 @@
+<form  (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="row">
+        <div class="col s12 m6">
+            <div class="form-group">
+                <label data-error="Name is required" for="name">Patient Name: *</label>
+                <input type="text" [(ngModel)]="patient.name" name="name" class="form-control validate" id="name" #name="ngModel" required>
+            </div>
+        </div>
+        <div class="col s12 m6">
+            <div class="form-group">
+                <label data-error="Name is required" for="birthDay">DOB: *</label>
+                <input type="text" [(ngModel)]="patient.birthDay" name="birthDay" class="form-control validate" id="birthDay"  #birthDay="ngModel">
+            </div>
+        </div>
+        <div class="col s12">
+            <div class="form-group">
+                <label data-error="Name is required" for="fullAddress">Full Address:</label>
+                <input type="text" [(ngModel)]="patient.fullAddress" name="fullAddress" class="form-control validate" id="fullAddress"  minlength="3"  #fullAddress="ngModel">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s4"> <button md-button  type="submit" >Save</button></div>
+    </div>
+</form>

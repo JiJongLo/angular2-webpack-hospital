@@ -1,0 +1,44 @@
+:host {
+  height: 100%;
+}
+aside {
+  height: 100%;
+  width: 97%;
+  color: white;
+}
+.patient-padding {
+  margin: 0 0.5em 0 0.5em;
+  width: 100%;
+}
+.name-info {
+  font-size: 1.3em;
+}
+.name-container {
+  padding-top: 2em;
+}
+.name-edit {
+  padding-left: 0.4em;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items :  center;
+  border-radius: 50%;
+}
+.name-edit:hover {
+  background-color: #0e2231;
+  cursor: pointer;
+}
+.information-patient{
+  font-size: 0.8em;
+}
+button {
+  box-shadow : none;
+  background-color: inherit;
+}
+button:hover {
+  box-shadow : inherit;
+  background-color: #ada7a7;
+}
+a {
+  color : inherit;
+}

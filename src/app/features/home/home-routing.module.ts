@@ -6,7 +6,8 @@ import { HomeComponent } from './home.component';
   imports: [
     RouterModule.forChild([
       { path: 'patients',
-        component: HomeComponent }
+        component: HomeComponent
+      }
     ])
   ],
   exports: [RouterModule]

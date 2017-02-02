@@ -26,7 +26,8 @@ export function patientReducer(state = initialState, action: Action): PatientsSt
     }
     case PatientActions.GETTING_PATIENTS_SUCCESS : {
       return Object.assign({}, state, {
-        listPatients: action.payload
+        listPatients: action.payload,
+        loaded: true
       });
     }
     default: {
@@ -35,3 +36,4 @@ export function patientReducer(state = initialState, action: Action): PatientsSt
   }
 }
 
+export const getEntities = (state: PatientsState) => state.listPatients;

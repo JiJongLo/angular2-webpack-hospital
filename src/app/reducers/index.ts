@@ -4,6 +4,7 @@ import { storeFreeze } from 'ngrx-store-freeze';
 import { storeLogger } from 'ngrx-store-logger';
 import { routerReducer, RouterState } from '@ngrx/router-store';
 import * as fromPatient from '../patient/patient.reducer';
+import { createSelector } from 'reselect';
 
 const modules = {
   'patients' : fromPatient
@@ -29,18 +30,6 @@ function stateSetter(reducer: ActionReducer<any>): ActionReducer<any> {
   };
 }
 
-const resetOnLogout = (reducer: Function) => {
-  return function (state, action) {
-    let newState;
-    if (action.type === '[User] Logout Success') {
-      newState = Object.assign({}, state);
-      Object.keys(modules).forEach((key) => {
-        newState[key] = modules[key]['initialState'];
-      });
-    }
-    return reducer(newState || state, action);
-  };
-};
 
 const DEV_REDUCERS = [stateSetter, storeFreeze];
 // set in constants.js file of project root
@@ -48,8 +37,8 @@ if (['logger', 'both'].indexOf(STORE_DEV_TOOLS) !== -1 ) {
     DEV_REDUCERS.push(storeLogger());
 }
 
-const developmentReducer = compose(...DEV_REDUCERS, resetOnLogout, combineReducers)(reducers);
-const productionReducer = compose(resetOnLogout, combineReducers)(reducers);
+const developmentReducer = compose(...DEV_REDUCERS, combineReducers)(reducers);
+const productionReducer = compose(combineReducers)(reducers);
 
 export function rootReducer(state: any, action: any) {
   if (ENV !== 'development') {
@@ -58,3 +47,6 @@ export function rootReducer(state: any, action: any) {
     return developmentReducer(state, action);
   }
 }
+
+export const getPatientsState = (state: AppState) => state.patients;
+export const getPatientEntities = createSelector(getPatientsState, fromPatient.getEntities);

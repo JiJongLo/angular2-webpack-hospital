@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { HomeComponent } from './home.component';
+import { HomeContainerComponent } from './home-container.component';
 
 @NgModule({
   imports: [
     RouterModule.forChild([
       { path: 'patients',
-        component: HomeComponent
+        component: HomeContainerComponent
       }
     ])
   ],

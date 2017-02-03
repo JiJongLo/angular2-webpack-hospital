@@ -1,4 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+export interface ColumnsState {
+  title: string;
+  name: string;
+}
 
 @Component({
   moduleId: module.id,
@@ -9,7 +13,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class TableComponent {
   @Input() records: Array<any> = [];
   @Input() title: string = '';
-  @Input() columns: any = {};
+  @Input() columns: Array<ColumnsState> = [];
   @Input() activeButtons:  Array<any> = [];
   @Output() click = new EventEmitter<string>();
 }

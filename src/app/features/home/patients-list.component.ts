@@ -1,22 +1,25 @@
 import { Component, Input } from '@angular/core';
 import { Patient } from '../../patient/patient.model';
+import { ColumnsState } from '../../shared';
 
 @Component({
   selector: 'patients-list-component',
   template: `
-   <ul>
-     <li *ngFor="let patient of patients">{{patient.name}}</li>
-   </ul>
+   <table-component 
+   [records]="patients"
+   [title]="'Patient'"
+   [columns]="columns"
+   ></table-component>
   `,
-  styles: [`
-    :host {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-  `]
+  styles: ['']
 })
+
 export class PatientListComponent {
   @Input() patients: Patient[];
+  columns: Array<ColumnsState> = [
+    {title : 'Full Name', name : 'name'},
+    {title : 'Address', name : 'fullAddress'},
+    {title : 'Birthday', name : 'birthDay'}
+  ];
 }
 

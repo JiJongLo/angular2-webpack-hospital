@@ -8,12 +8,20 @@ import { MaterialModule } from '@angular/material';
 import { FormsModule }   from '@angular/forms';
 import { PatientActions } from '../../patient/patient.actions';
 import { PatientService } from '../../patient/patient.service';
-
+import { PatientListComponent } from './patients-list.component';
 
 @NgModule({
-  imports: [CommonModule, HomeRoutingModule, SharedModule, MaterialModule.forRoot(), FormsModule],
+  imports: [
+    CommonModule,
+    HomeRoutingModule,
+    SharedModule,
+    MaterialModule.forRoot(),
+    FormsModule
+  ],
   declarations: [
-    HomeContainerComponent, PatientInfoComponent
+    HomeContainerComponent,
+    PatientInfoComponent,
+    PatientListComponent
   ],
   exports: [HomeContainerComponent],
   providers: [PatientActions, PatientService]

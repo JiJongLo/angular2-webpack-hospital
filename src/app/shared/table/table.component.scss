@@ -1,0 +1,37 @@
+.table-responsive {
+  border: 0;
+}
+.table thead tr th {
+  background-color: #4fc3f7;
+  color: #fff;
+  text-transform: uppercase;
+  border-bottom-color: #eee;
+  padding: 15px;
+}
+.table tbody tr.rt-selected {
+  background-color: #ccedfd;
+}
+.table tbody tr:nth-of-type(even) {
+  background-color: #fcfcfc;
+}
+.table tbody tr:hover {
+  background-color: #eee;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+button {
+  box-shadow : none;
+  background-color: inherit;
+}
+button:hover {
+  box-shadow : inherit;
+  background-color: #d6d6d6;
+}
+a {
+  color : inherit;
+}
+.button-table {
+  display: inline-flex;
+}

@@ -2,7 +2,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { IdlePreload, IdlePreloadModule } from '@angularclass/idle-preload';
 import { MaterialModule } from '@angular/material';
-
+import { RTModule } from 'right-angled';
 import { EffectsModule } from '@ngrx/effects';
 import { RouterStoreModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
@@ -33,6 +33,7 @@ export const APP_IMPORTS = [
   ReactiveFormsModule,
   HomeModule,
   SharedModule,
+  RTModule,
   IdlePreloadModule.forRoot(), // forRoot ensures the providers are only created once
   RouterModule.forRoot(routes, { useHash: false, preloadingStrategy: IdlePreload }),
   RouterStoreModule.connectRouter(),

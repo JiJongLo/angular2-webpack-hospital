@@ -18,16 +18,16 @@ exports.DEV_SERVER_PROXY_CONFIG = {
 }
 
 /**
- * These constants set the source maps that will be used on build. 
- * For info on source map options, go to: 
+ * These constants set the source maps that will be used on build.
+ * For info on source map options, go to:
  * https://webpack.github.io/docs/configuration.html#devtool
  */
 exports.DEV_SOURCE_MAPS = 'eval';
 exports.PROD_SOURCE_MAPS = 'source-map';
 
 /**
- * Set watch options for Dev Server. For better HMR performance, you can 
- * try setting poll to 1000 or as low as 300 and set aggregateTimeout to as low as 0. 
+ * Set watch options for Dev Server. For better HMR performance, you can
+ * try setting poll to 1000 or as low as 300 and set aggregateTimeout to as low as 0.
  * These settings will effect CPU usage, so optimal setting will depend on your dev environment.
  * https://github.com/webpack/docs/wiki/webpack-dev-middleware#watchoptionsaggregatetimeout
  */
@@ -65,6 +65,7 @@ exports.MY_VENDOR_DLLS = [
   // list vendors that you want to be included in your dlls files
   // this will speed up initial dev server build and incremental builds.
   // Be sure to run `npm run build:dll` if you make changes to this array.
+  'node_modules/e2e4'
 ]
 
 exports.MY_CLIENT_PLUGINS = [

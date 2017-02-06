@@ -1,21 +1,23 @@
-<div class="card-panel  blue lighten-2">
-  <span class="grey-text text-lighten-5">{{title}} :</span>
-</div>
+<div class="container">
+<md-toolbar>{{title}}:</md-toolbar>
+<div class="table-responsive">
 <table class="table table-striped">
   <thead>
   <tr>
     <th *ngFor="let column of columns">{{column.title}}</th>
+    <th *ngIf="activeButtons.length">Actions</th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let record of records">
     <td *ngFor="let column of columns">{{ record[column.name] }}</td>
     <td class="button-table" *ngIf="activeButtons.length">
-      <a *ngFor="let elem of activeButtons" (click)="click.emit({type : elem.link, id : record.code})" class="{{elem.className}}"><button md-mini-fab >
-        <md-icon class="md-24">{{elem.name}}</md-icon>
+      <a *ngFor="let elem of activeButtons" (click)="click.emit({type : elem.link, id : record.code})" class="{{elem.className}}"><button md-mini-fab>
+        <md-icon>{{elem.name}}</md-icon>
       </button></a>
     </td>
   </tr>
   </tbody>
 </table>
-
+</div>
+</div>

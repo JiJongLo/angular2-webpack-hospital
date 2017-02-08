@@ -1,12 +1,27 @@
 .table-responsive {
   border: 0;
 }
-.table thead tr th {
-  background-color: #4fc3f7;
-  color: #fff;
-  text-transform: uppercase;
-  border-bottom-color: #eee;
-  padding: 15px;
+.table-responsive {
+  table {
+    text-align: center;
+    thead {
+      tr {
+        th {
+          background-color: #4fc3f7;
+          color: #fff;
+          text-transform: uppercase;
+          text-align: center;
+          border-bottom-color: #eee;
+          padding: 15px;
+        }
+      }
+    }
+  }
+}
+
+.actions-container {
+  display: flex;
+  justify-content: center;
 }
 .table tbody tr.rt-selected {
   background-color: #ccedfd;
@@ -31,7 +46,4 @@ button:hover {
 }
 a {
   color : inherit;
-}
-.button-table {
-  display: inline-flex;
 }

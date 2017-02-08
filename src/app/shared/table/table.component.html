@@ -12,9 +12,13 @@
   <tr *ngFor="let record of records">
     <td *ngFor="let column of columns">{{ record[column.name] }}</td>
     <td class="button-table" *ngIf="activeButtons.length">
-      <a *ngFor="let elem of activeButtons" (click)="click.emit({type : elem.link, id : record.code})" class="{{elem.className}}"><button md-mini-fab>
-        <md-icon>{{elem.name}}</md-icon>
-      </button></a>
+     <div class="actions-container">
+       <a *ngFor="let elem of activeButtons" (click)="click.emit({type : elem.link, id : record.code})" class="{{elem.className}}">
+         <button md-mini-fab>
+           <md-icon>{{elem.name}}</md-icon>
+         </button>
+       </a>
+     </div>
     </td>
   </tr>
   </tbody>

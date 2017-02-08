@@ -1,5 +1,10 @@
 <div class="container">
   <div class="row">
+    <div class="col-md-12">
+      <patient-search [query]="searchQuery$ | async" [searching]="loading$ | async" (search)="search($event)"></patient-search>
+    </div>
+  </div>
+  <div class="row">
    <div class="col-md-12">
      <patients-list-component [patients]="patients$ | async"></patients-list-component>
    </div>

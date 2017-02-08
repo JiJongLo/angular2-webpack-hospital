@@ -8,7 +8,7 @@ import { MaterialModule } from '@angular/material';
 import { FormsModule }   from '@angular/forms';
 import { PatientActions } from '../../patient/patient.actions';
 import { PatientService } from '../../patient/patient.service';
-import { PatientListComponent } from './patients-list.component';
+import { PatientListComponent, PatientSearchComponent, PatientPreviewComponent } from './index';
 
 @NgModule({
   imports: [
@@ -21,6 +21,8 @@ import { PatientListComponent } from './patients-list.component';
   declarations: [
     HomeContainerComponent,
     PatientInfoComponent,
+    PatientSearchComponent,
+    PatientPreviewComponent,
     PatientListComponent
   ],
   exports: [HomeContainerComponent],

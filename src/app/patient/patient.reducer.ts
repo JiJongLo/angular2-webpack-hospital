@@ -1,11 +1,12 @@
 import { Action } from '@ngrx/store';
 
-import { PatientActions } from './patient.actions';
+import {  actionTypes } from './patient.actions';
 import { Patient } from './patient.model';
 
 export interface PatientsState {
   listPatients: Patient[];
   loading: boolean;
+  query: string;
   currentPatient: Patient;
   loaded: boolean;
 };
@@ -13,18 +14,19 @@ export interface PatientsState {
 export const initialState: PatientsState = {
   listPatients: [],
   loading: false,
+  query: '',
   currentPatient: null,
-  loaded: false,
+  loaded: false
 };
 
 export function patientReducer(state = initialState, action: Action): PatientsState {
   switch (action.type) {
-    case PatientActions.EDIT_PATIENT : {
+    case actionTypes.EDIT_PATIENT : {
       return Object.assign({}, state, {
         user: action.payload
       });
     }
-    case PatientActions.GETTING_PATIENTS_SUCCESS : {
+    case actionTypes.GETTING_PATIENTS_SUCCESS : {
       return Object.assign({}, state, {
         listPatients: action.payload,
         loaded: true
@@ -37,3 +39,5 @@ export function patientReducer(state = initialState, action: Action): PatientsSt
 }
 
 export const getEntities = (state: PatientsState) => state.listPatients;
+export const getSearchQuery = (state: PatientsState) => state.query;
+export const getSearchLoading = (state: PatientsState) => state.loading;

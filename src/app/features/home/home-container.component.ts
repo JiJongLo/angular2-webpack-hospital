@@ -4,7 +4,10 @@ import { Store } from '@ngrx/store';
 import { PatientActions } from '../../patient/patient.actions';
 import { Observable } from 'rxjs/Observable';
 import { Patient } from '../../patient/patient.model';
-import { AppState, getPatientEntities } from '../../reducers';
+import { AppState,
+         getPatientEntities,
+         getPatientSearchQuery,
+         getPatientSearchLoading } from '../../reducers';
 
 @Component({
   moduleId: module.id,
@@ -15,16 +18,24 @@ import { AppState, getPatientEntities } from '../../reducers';
 export class HomeContainerComponent implements OnDestroy, OnInit {
   destroyed$: Subject<any> = new Subject<any>();
   patients$: Observable<Patient[]>;
+  searchQuery$: Observable<string>;
+  loading$: Observable<boolean>;
+
   constructor(
     private store: Store<AppState>,
     private patientActions: PatientActions
   ) {
     this.patients$ = store.select(getPatientEntities);
+    this.searchQuery$ = store.select(getPatientSearchQuery).take(1);
+    this.loading$ = store.select(getPatientSearchLoading);
   }
   ngOnInit() {
     this.store.dispatch(this.patientActions.requestPatients());
   }
   ngOnDestroy() {
     this.destroyed$.next();
+  }
+  search(query: string) {
+    this.store.dispatch(this.patientActions.searchPatient(query));
   }
 }

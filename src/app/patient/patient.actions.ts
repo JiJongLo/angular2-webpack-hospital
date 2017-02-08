@@ -1,40 +1,52 @@
-/* tslint:disable: member-ordering */
 import { Injectable } from '@angular/core';
 import { Response } from '@angular/http';
 import { Action } from '@ngrx/store';
 import { Patient } from './patient.model';
+import { type } from '../util';
+
+export const actionTypes = {
+  SEARCH_PATIENT:            type('[Patient] Search specific patient'),
+  SEARCH_COMPLETE:           type('Patient] Search the patient complete'),
+  LOAD:                      type('[Patient] Loading'),
+  REQUEST_PATIENTS:          type('[Patient] Request a list of patients'),
+  EDIT_PATIENT:              type('[Patient] Edit Patient'),
+  GETTING_PATIENTS_SUCCESS:  type('[Patient] Loaded list of patients'),
+  GETTING_PATIENTS_FAIL:     type('[Patient] Loading list of patients failed')
+};
 
 @Injectable()
-
 export class PatientActions {
-
-  static EDIT_PATIENT = '[Patient] Edit Patient';
 
   editPatient(patient: Patient): Action {
     return {
-      type: PatientActions.EDIT_PATIENT,
+      type: actionTypes.EDIT_PATIENT,
       payload: patient
     };
   }
-  static GETTING_PATIENTS_SUCCESS = '[Patient] Load Patients Success';
 
   getPatientsSuccess(res: Response): Action {
     return {
-      type: PatientActions.GETTING_PATIENTS_SUCCESS,
+      type: actionTypes.GETTING_PATIENTS_SUCCESS,
       payload: res
     };
   }
 
-  static REQUEST_PATIENTS = '[Patient] Load list of patients';
+  searchPatient(query: string) {
+    return {
+      type: actionTypes.SEARCH_PATIENT,
+      payload: query
+    };
+  }
 
   requestPatients(): Action {
     return {
-      type: PatientActions.REQUEST_PATIENTS
+      type: actionTypes.REQUEST_PATIENTS
     };
-}
+  }
+
   getPatientsFail(res: Response): Action {
     return {
-      type: PatientActions.GETTING_PATIENTS_SUCCESS,
+      type: actionTypes.GETTING_PATIENTS_FAIL,
       payload: res
     };
   }

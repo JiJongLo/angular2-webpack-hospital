@@ -6,7 +6,7 @@ import { type } from '../util';
 
 export const actionTypes = {
   SEARCH_PATIENT:            type('[Patient] Search specific patient'),
-  SEARCH_COMPLETE:           type('Patient] Search the patient complete'),
+  SEARCH_PATIENT_COMPLETE:   type('Patient] Search the patient complete'),
   LOAD:                      type('[Patient] Loading'),
   REQUEST_PATIENTS:          type('[Patient] Request a list of patients'),
   EDIT_PATIENT:              type('[Patient] Edit Patient'),
@@ -35,6 +35,13 @@ export class PatientActions {
     return {
       type: actionTypes.SEARCH_PATIENT,
       payload: query
+    };
+  }
+
+  searchPatientComplate(patients: Patient[]) {
+    return {
+      type: actionTypes.SEARCH_PATIENT_COMPLETE,
+      payload: patients
     };
   }
 

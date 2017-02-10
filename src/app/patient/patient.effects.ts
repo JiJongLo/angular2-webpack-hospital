@@ -11,10 +11,12 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/skip';
 import 'rxjs/add/operator/takeUntil';
 import { empty } from 'rxjs/observable/empty';
 import { of } from 'rxjs/observable/of';
+import { filter, lowerCase } from 'lodash';
 
 @Injectable()
 
@@ -29,11 +31,11 @@ export class PatientEffects {
   @Effect() get$ = this.actions$
     .ofType(actionTypes.REQUEST_PATIENTS)
     .switchMap(() => this.patientService.getPatients()
-      .mergeMap((res: any) => Observable.of(
+      .mergeMap((res: any) => of(
         this.patientActions.getPatientsSuccess(res)
         )
       )
-      .catch((err) => Observable.of(
+      .catch((err) => of(
         this.patientActions.getPatientsFail(err)
       ))
     );
@@ -41,18 +43,18 @@ export class PatientEffects {
   @Effect()
   search$: Observable<Action> = this.actions$
     .ofType(actionTypes.SEARCH_PATIENT)
-    .debounceTime(500)
+    .debounceTime(800)
+    .distinctUntilChanged()
     .map((action: Action) => action.payload)
     .switchMap(query => {
-      if (query === '') {
-        return empty();
-      }
-      const nextSearch$ = this.actions$.ofType(actionTypes.SEARCH_PATIENT).skip(1);
       return this.store.select(getPatientEntities)
-        .takeUntil(nextSearch$)
-        .filter(patients => {
-          return true
+        .map(patients => {
+          const filteredPatients =  filter(patients,
+            (patient) => lowerCase(patient.name).includes(lowerCase(query))
+          );
+          return this.patientActions.searchPatientComplete(filteredPatients)
         })
-        .catch(() => of(this.patientActions.searchPatientComplate([])));
-    });
+        .catch(() => this.patientActions.searchPatientComplete([]));
+    })
+    ;
 }

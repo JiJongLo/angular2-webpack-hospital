@@ -50,6 +50,7 @@ export function rootReducer(state: any, action: any) {
 
 export const getPatientsState = (state: AppState) => state.patients;
 export const getPatientEntities = createSelector(getPatientsState, fromPatient.getEntities);
+export const getFilteredPatientEntities = createSelector(getPatientsState, fromPatient.getFilteredEntities);
 export const getPatientSearchQuery = createSelector(getPatientsState, fromPatient.getSearchQuery);
 export const getPatientSearchLoading = createSelector(getPatientsState, fromPatient.getSearchLoading);
 

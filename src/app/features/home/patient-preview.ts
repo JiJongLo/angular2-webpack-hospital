@@ -64,6 +64,6 @@ export class PatientPreviewComponent {
     return this.patient.fullAddress;
   }
   get thumbnail(): string | boolean {
-    return false;
+    return `assets/logo/${this.patient.logo}`;
   }
 }

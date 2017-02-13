@@ -38,10 +38,10 @@ export class PatientActions {
     };
   }
 
-  searchPatientComplete(patients: Patient[]) {
+  searchPatientComplete(query: string) {
     return {
       type: actionTypes.SEARCH_PATIENT_COMPLETE,
-      payload: patients
+      payload: query
     };
   }
 

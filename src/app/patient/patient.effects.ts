@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { Action } from '@ngrx/store';
 import { PatientActions, actionTypes } from './patient.actions';
-import { AppState, getPatientEntities } from '../reducers';
+import { AppState } from '../reducers';
 import { PatientService } from './patient.service';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -14,9 +14,7 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/skip';
 import 'rxjs/add/operator/takeUntil';
-import { empty } from 'rxjs/observable/empty';
 import { of } from 'rxjs/observable/of';
-import { filter, lowerCase } from 'lodash';
 
 @Injectable()
 
@@ -46,15 +44,5 @@ export class PatientEffects {
     .debounceTime(800)
     .distinctUntilChanged()
     .map((action: Action) => action.payload)
-    .switchMap(query => {
-      return this.store.select(getPatientEntities)
-        .map(patients => {
-          const filteredPatients =  filter(patients,
-            (patient) => lowerCase(patient.name).includes(lowerCase(query))
-          );
-          return this.patientActions.searchPatientComplete(filteredPatients)
-        })
-        .catch(() => this.patientActions.searchPatientComplete([]));
-    })
-    ;
+    .switchMap(query => of(this.patientActions.searchPatientComplete(query)));
 }

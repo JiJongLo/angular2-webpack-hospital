@@ -36,12 +36,17 @@ export function patientReducer(state = initialState, action: Action): PatientsSt
     }
     case actionTypes.SEARCH_PATIENT : {
       return Object.assign({}, state, {
-        query: action.payload
+        query: action.payload,
+        loading : true
       });
     }
     case actionTypes.SEARCH_PATIENT_COMPLETE: {
       return Object.assign({}, state, {
-        filteredPatients: action.payload
+        filteredPatients: state.listPatients.filter(patient => {
+          return !action.payload ? true :
+            patient.name.toLocaleLowerCase().includes(action.payload.toLocaleLowerCase());
+        }),
+        loading : false
     });
     }
     default: {

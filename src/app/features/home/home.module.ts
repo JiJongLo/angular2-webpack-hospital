@@ -9,6 +9,7 @@ import { FormsModule }   from '@angular/forms';
 import { PatientActions } from '../../patient/patient.actions';
 import { PatientService } from '../../patient/patient.service';
 import { PatientListComponent, PatientSearchComponent, PatientPreviewComponent } from './index';
+import { DiagnosesContainerComponent, DiagnosesListComponent } from './diagnoses/index';
 
 @NgModule({
   imports: [
@@ -20,6 +21,8 @@ import { PatientListComponent, PatientSearchComponent, PatientPreviewComponent }
   ],
   declarations: [
     HomeContainerComponent,
+    DiagnosesContainerComponent,
+    DiagnosesListComponent,
     PatientInfoComponent,
     PatientSearchComponent,
     PatientPreviewComponent,

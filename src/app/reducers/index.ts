@@ -54,3 +54,5 @@ export const getFilteredPatientEntities = createSelector(getPatientsState, fromP
 export const getPatientSearchQuery = createSelector(getPatientsState, fromPatient.getSearchQuery);
 export const getPatientSearchLoading = createSelector(getPatientsState, fromPatient.getSearchLoading);
 
+export const getCurrentPatient = createSelector(getPatientsState, getPatientEntities, );
+

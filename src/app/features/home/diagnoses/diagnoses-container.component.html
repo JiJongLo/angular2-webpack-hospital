@@ -1,13 +1,13 @@
 <div class="row container-height">
   <div class="col s3 m4 l2 container-height reset-padding container-patient">
-    <patient-info [id]="patient.id" [nameOfPatient]="patient.name" [birthday]="patient.birthDay" [fullAddress]="patient.fullAddress"></patient-info>
+    <patient-info [patient]="patient$ | async"></patient-info>
   </div>
   <div class="col s9 m8 l10 reset-padding">
     <nav>
       <div class="nav-wrapper breadcrumb-container reset-padding">
         <div class="col s12">
           <a (click)="goToBack()" class="breadcrumb">Patients</a>
-          <a class="breadcrumb">{{patient.name}}</a>
+          <a class="breadcrumb"></a>
         </div>
       </div>
     </nav>

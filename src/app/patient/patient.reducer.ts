@@ -59,4 +59,4 @@ export const getEntities = (state: PatientsState) => state.listPatients;
 export const getFilteredEntities = (state: PatientsState) => state.filteredPatients;
 export const getSearchQuery = (state: PatientsState) => state.query;
 export const getSearchLoading = (state: PatientsState) => state.loading;
-export const getSearchCurrentPatient = (state: PatientsState) => state.loading;
+export const getSearchCurrentPatient = (state: PatientsState) => state.currentPatient;

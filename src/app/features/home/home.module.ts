@@ -8,8 +8,11 @@ import { MaterialModule } from '@angular/material';
 import { FormsModule }   from '@angular/forms';
 import { PatientActions } from '../../patient/patient.actions';
 import { PatientService } from '../../patient/patient.service';
+import { DiagnosesService } from '../../diagnosis/diagnosis.service';
+import { DiagnosesActions } from '../../diagnosis/diagnosis.actions';
 import { PatientListComponent, PatientSearchComponent, PatientPreviewComponent } from './index';
-import { DiagnosesContainerComponent, DiagnosesListComponent } from './diagnoses/index';
+import { DiagnosesContainerComponent } from './diagnoses';
+
 
 @NgModule({
   imports: [
@@ -22,13 +25,12 @@ import { DiagnosesContainerComponent, DiagnosesListComponent } from './diagnoses
   declarations: [
     HomeContainerComponent,
     DiagnosesContainerComponent,
-    DiagnosesListComponent,
     PatientInfoComponent,
     PatientSearchComponent,
     PatientPreviewComponent,
     PatientListComponent
   ],
   exports: [HomeContainerComponent],
-  providers: [PatientActions, PatientService]
+  providers: [PatientActions, PatientService, DiagnosesService, DiagnosesActions]
 })
 export class HomeModule { }

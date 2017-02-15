@@ -2,8 +2,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs/Observable';
-import { Action } from '@ngrx/store';
 import { DiagnosesActions, actionTypes } from './diagnosis.actions';
 import { AppState } from '../reducers';
 import { DiagnosesService } from './diagnosis.service';
@@ -28,14 +26,15 @@ export class PatientEffects {
 
   @Effect() get$ = this.actions$
     .ofType(actionTypes.GET_DIAGNOSES)
-    .switchMap(() => this.diagnosisService.getDiagnoses()
-      .mergeMap((res: any) => {
-          debugger
-         return of(this.diagnosisActions.getDiagnosisSuccess(res))
-        }
-      )
-      .catch((err) => of(
-        this.diagnosisActions.getDiagnosisFail(err)
-      ))
+    .switchMap(() => {
+        return this.diagnosisService.getDiagnoses()
+            .mergeMap((res: any) => {
+                return of(this.diagnosisActions.getDiagnosisSuccess(res));
+              }
+            )
+            .catch((err) => of(
+              this.diagnosisActions.getDiagnosisFail(err)
+            ));
+      }
     );
 }

@@ -4,20 +4,24 @@ import { storeFreeze } from 'ngrx-store-freeze';
 import { storeLogger } from 'ngrx-store-logger';
 import { routerReducer, RouterState } from '@ngrx/router-store';
 import * as fromPatient from '../patient/patient.reducer';
+import * as fromDiagnosis from '../diagnosis/diagnosis.reducer';
 import { createSelector } from 'reselect';
 
 const modules = {
-  'patients' : fromPatient
+  'patients' : fromPatient,
+  'diagnosis': fromDiagnosis
 };
 
 export interface AppState {
   router: RouterState;
   patients: fromPatient.PatientsState;
+  diagnosis: fromDiagnosis.DiagnosisState
 }
 
 export const reducers = {
   router: routerReducer,
-  patients: fromPatient.patientReducer
+  patients: fromPatient.patientReducer,
+  diagnosis: fromDiagnosis.diagnosisReducer
 };
 
 // Generate a reducer to set the root state in dev mode for HMR
@@ -49,10 +53,12 @@ export function rootReducer(state: any, action: any) {
 }
 
 export const getPatientsState = (state: AppState) => state.patients;
-export const getPatientEntities = createSelector(getPatientsState, fromPatient.getEntities);
-export const getFilteredPatientEntities = createSelector(getPatientsState, fromPatient.getFilteredEntities);
-export const getPatientSearchQuery = createSelector(getPatientsState, fromPatient.getSearchQuery);
-export const getPatientSearchLoading = createSelector(getPatientsState, fromPatient.getSearchLoading);
-
-export const getCurrentPatient = createSelector(getPatientsState, getPatientEntities, );
+export const getFilteredPatientEntities =
+  createSelector(getPatientsState, fromPatient.getFilteredEntities);
+export const getPatientSearchQuery =
+  createSelector(getPatientsState, fromPatient.getSearchQuery);
+export const getPatientSearchLoading =
+  createSelector(getPatientsState, fromPatient.getSearchLoading);
+export const getCurrentPatient =
+  createSelector(getPatientsState, fromPatient.getSearchCurrentPatient);
 

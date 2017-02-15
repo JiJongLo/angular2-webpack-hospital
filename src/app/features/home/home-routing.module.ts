@@ -10,14 +10,14 @@ import { DiagnosesContainerComponent, DiagnosesListComponent } from './diagnoses
         component: HomeContainerComponent
       },
       {
-        path: 'patients/:id',
+        path: 'patient/:id',
         component: DiagnosesContainerComponent,
-        children: [
-          {
-            path: '',
-            component: DiagnosesListComponent
-          }
-        ]
+        // children: [
+        //   {
+        //     path: '',
+        //     component: DiagnosesListComponent
+        //   }
+        // ]
       }
     ])
   ],

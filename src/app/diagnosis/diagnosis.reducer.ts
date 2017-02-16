@@ -21,6 +21,7 @@ export function reducer(state = initialState, action: Action): DiagnosisState {
     case actionTypes.GET_DIAGNOSES_COMPLETE : {
       return Object.assign({}, state, {
         diagnoses: action.payload.diagnoses,
+        patient: action.payload.patient,
         loading: false,
         loaded: true
       });

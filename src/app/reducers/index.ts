@@ -61,4 +61,5 @@ export const getPatientSearchLoading =
   createSelector(getPatientsState, fromPatient.getSearchLoading);
 export const getCurrentPatient =
   createSelector(getPatientsState, fromPatient.getSearchCurrentPatient);
-
+export const getPatientEntities =
+  createSelector(getPatientsState, fromPatient.getEntities);

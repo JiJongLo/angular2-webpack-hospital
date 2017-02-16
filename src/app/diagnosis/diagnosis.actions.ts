@@ -17,7 +17,7 @@ export class DiagnosesActions {
       payload: id
     };
   }
-  getDiagnosisSuccess(res: Response): Action {
+  getDiagnosisSuccess(res: any): Action {
     return {
       type: actionTypes.GET_DIAGNOSES_COMPLETE,
       payload: res

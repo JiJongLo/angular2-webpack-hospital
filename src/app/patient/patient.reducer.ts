@@ -20,7 +20,7 @@ export const initialState: PatientsState = {
   loaded: false
 };
 
-export function patientReducer(state = initialState, action: Action): PatientsState {
+export function reducer(state = initialState, action: Action): PatientsState {
   switch (action.type) {
     case actionTypes.EDIT_PATIENT : {
       return Object.assign({}, state, {

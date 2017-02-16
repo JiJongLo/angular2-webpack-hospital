@@ -16,16 +16,25 @@ export const initialState: DiagnosisState = {
   loaded: false
 };
 
-export function diagnosisReducer(state = initialState, action: Action): DiagnosisState {
+export function reducer(state = initialState, action: Action): DiagnosisState {
   switch (action.type) {
     case actionTypes.GET_DIAGNOSES_COMPLETE : {
       return Object.assign({}, state, {
-        diagnoses: action.payload.diagnoses
+        diagnoses: action.payload.diagnoses,
+        loading: false,
+        loaded: true
       });
     }
     case actionTypes.GET_DIAGNOSES_FAIL : {
       return Object.assign({}, state, {
-        diagnoses: []
+        diagnoses: [],
+        loading: false,
+        loaded: false
+      });
+    }
+    case actionTypes.GET_DIAGNOSES : {
+      return Object.assign({}, state, {
+        loading: true
       });
     }
     default: {

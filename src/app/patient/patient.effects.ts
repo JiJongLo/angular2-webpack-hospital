@@ -26,7 +26,8 @@ export class PatientEffects {
     private patientActions: PatientActions
   ) { }
 
-  @Effect() get$ = this.actions$
+  @Effect()
+  get$ = this.actions$
     .ofType(actionTypes.REQUEST_PATIENTS)
     .switchMap(() => this.patientService.getPatients()
       .mergeMap((res: any) => of(

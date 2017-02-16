@@ -12,6 +12,7 @@ import { routes } from './app.routing';
 import { rootReducer } from './reducers';
 import { StoreDevToolsModule } from './features/store-devtools.module';
 import { PatientEffects } from './patient/patient.effects';
+import { DiagnosisEffects } from './diagnosis/diagnosis.effects';
 import { HomeModule } from './features/home/home.module';
 import { SharedModule } from './shared/shared.module';
 const STORE_DEV_TOOLS_IMPORTS = [];
@@ -29,6 +30,7 @@ if (ENV === 'development' && !AOT &&
 
 export const APP_IMPORTS = [
   EffectsModule.run(PatientEffects),
+  EffectsModule.run(DiagnosisEffects),
   MaterialModule.forRoot(),
   ReactiveFormsModule,
   HomeModule,

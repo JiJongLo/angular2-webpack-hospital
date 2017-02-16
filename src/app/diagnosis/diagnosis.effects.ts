@@ -16,7 +16,7 @@ import { of } from 'rxjs/observable/of';
 
 @Injectable()
 
-export class PatientEffects {
+export class DiagnosisEffects {
   constructor(
     private actions$: Actions,
     private store: Store<AppState>,
@@ -24,17 +24,15 @@ export class PatientEffects {
     private diagnosisActions: DiagnosesActions
   ) { }
 
-  @Effect() get$ = this.actions$
+  @Effect()
+  getDiagnoses$ = this.actions$
     .ofType(actionTypes.GET_DIAGNOSES)
-    .switchMap(() => {
-        return this.diagnosisService.getDiagnoses()
-            .mergeMap((res: any) => {
-                return of(this.diagnosisActions.getDiagnosisSuccess(res));
-              }
-            )
-            .catch((err) => of(
-              this.diagnosisActions.getDiagnosisFail(err)
-            ));
-      }
+    .switchMap(() => this.diagnosisService.getDiagnoses()
+      .mergeMap((res: any) => {
+         return of(this.diagnosisActions.getDiagnosisSuccess(res));
+       })
+      .catch((err) => of(
+        this.diagnosisActions.getDiagnosisFail(err)
+      ))
     );
 }

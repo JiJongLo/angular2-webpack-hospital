@@ -20,8 +20,8 @@ export interface AppState {
 
 export const reducers = {
   router: routerReducer,
-  patients: fromPatient.patientReducer,
-  diagnosis: fromDiagnosis.diagnosisReducer
+  patients: fromPatient.reducer,
+  diagnosis: fromDiagnosis.reducer
 };
 
 // Generate a reducer to set the root state in dev mode for HMR

@@ -34,13 +34,11 @@ export class DiagnosisEffects {
       .mergeMap((res: any) => {
          return this.store.select(getPatientEntities)
            .map((data) => {
-             const patient = find(data, (patient) => patient.id === +query);
-             const result = {patient : patient, diagnoses : res.diagnoses};
-             return of(this.diagnosisActions.getDiagnosisSuccess(result));
+            const patient = find(data, patient => patient.id === +query);
+            const result = {patient : patient, diagnoses : res.diagnoses};
+            return this.diagnosisActions.getDiagnosisSuccess(result);
            })
-           .catch((err) => of(
-             this.diagnosisActions.getDiagnosisFail(err)
-           ));
+           .catch((err) => of(this.diagnosisActions.getDiagnosisFail(err)));
        })
     );
 }

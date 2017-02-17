@@ -9,16 +9,16 @@ import { Patient } from '../../../patient/patient.model';
 export class PatientInfoComponent {
   @Input() patient: Patient;
   get id() {
-    return this.patient.id;
+    return this.patient ? this.patient.id : null;
   }
   get birthDay() {
-    return this.patient.birthDay;
+    return this.patient ? this.patient.birthDay : null;
   }
   get name() {
-    return this.patient.name;
+    return this.patient ? this.patient.name : null;
   }
   get fullAddress() {
-    return this.patient.fullAddress;
+    return this.patient ? this.patient.fullAddress : null;
   }
   handle(id: number) {
 

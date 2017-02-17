@@ -15,7 +15,7 @@ const modules = {
 export interface AppState {
   router: RouterState;
   patients: fromPatient.PatientsState;
-  diagnosis: fromDiagnosis.DiagnosisState
+  diagnosis: fromDiagnosis.DiagnosisState;
 }
 
 export const reducers = {
@@ -53,13 +53,15 @@ export function rootReducer(state: any, action: any) {
 }
 
 export const getPatientsState = (state: AppState) => state.patients;
+export const getDiagnosisState = (state: AppState) => state.diagnosis;
 export const getFilteredPatientEntities =
   createSelector(getPatientsState, fromPatient.getFilteredEntities);
 export const getPatientSearchQuery =
   createSelector(getPatientsState, fromPatient.getSearchQuery);
 export const getPatientSearchLoading =
   createSelector(getPatientsState, fromPatient.getSearchLoading);
-export const getCurrentPatient =
-  createSelector(getPatientsState, fromPatient.getSearchCurrentPatient);
 export const getPatientEntities =
   createSelector(getPatientsState, fromPatient.getEntities);
+
+export const getCurrentPatient =
+  createSelector(getDiagnosisState, fromDiagnosis.getPatient);

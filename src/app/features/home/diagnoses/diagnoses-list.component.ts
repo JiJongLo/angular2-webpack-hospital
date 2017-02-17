@@ -1,6 +1,4 @@
 import { Component, OnInit }      from '@angular/core';
-import { DiagnosesListService } from './diagnoses-list.service';
-import { Diagnosis } from './Diagnosis';
 import { Location } from '@angular/common';
 
 @Component({
@@ -11,8 +9,7 @@ import { Location } from '@angular/common';
 })
 
 export class DiagnosesListComponent implements OnInit {
-  diagnoses: Diagnosis[] = [];
-  dataCurrentDiagnoses : any = {
+  dataCurrentDiagnoses: any = {
     title : 'Current Diagnoses',
     records : [],
     columns : [
@@ -22,7 +19,7 @@ export class DiagnosesListComponent implements OnInit {
    ],
    buttons: [{name : 'edit', className : 'edit', link : 'edit'}, {name : 'delete', className : 'delete', link : 'delete'}]
   };
-  dataHistoryDiagnoses : any = {
+  dataHistoryDiagnoses: any = {
     title : 'Diagnoses History',
     records : [],
     columns : [
@@ -34,27 +31,16 @@ export class DiagnosesListComponent implements OnInit {
   };
 
   constructor(
-    private diagnosesListService: DiagnosesListService,
     private location: Location
   ) {}
   ngOnInit(): void {
      this.updateData();
-     this.diagnosesListService.diagnosisIsDelete.subscribe(
-       () => this.updateData()
-    );
   }
   addDiagnosis(): void {
     const id = +this.location.path().split('/')[2];
-    this.diagnosesListService.addDiagnoses(id);
   }
   updateData(): void {
       const id = +this.location.path().split('/')[2];
-      this.diagnosesListService.getDiagnoses(id)
-          .then(data => {
-              this.diagnoses = data;
-              this.dataCurrentDiagnoses.records = this.diagnoses.filter(diagnosis => diagnosis.removed === false);
-              this.dataHistoryDiagnoses.records = this.diagnoses.filter(diagnosis => diagnosis.removed === true);
-          });
   }
 }
 

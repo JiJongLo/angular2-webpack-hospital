@@ -44,3 +44,4 @@ export function reducer(state = initialState, action: Action): DiagnosisState {
   }
 }
 
+export const getPatient =  (state: DiagnosisState) => state.patient;

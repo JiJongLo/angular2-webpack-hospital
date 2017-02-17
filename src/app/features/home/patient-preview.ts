@@ -5,7 +5,7 @@ import { Patient } from '../../patient/patient.model';
 @Component({
   selector: 'patient-preview',
   template: `
-    <a [routerLink]="['/patient', id]">
+    <a [routerLink]="['/patients', id]">
       <md-card>
         <md-card-title-group>
           <img md-card-sm-image *ngIf="thumbnail" [src]="thumbnail"/>

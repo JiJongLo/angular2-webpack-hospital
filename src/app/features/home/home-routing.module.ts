@@ -10,7 +10,7 @@ import { DiagnosesContainerComponent, DiagnosesListComponent } from './diagnoses
         component: HomeContainerComponent
       },
       {
-        path: 'patient/:id',
+        path: 'patients/:id',
         component: DiagnosesContainerComponent,
         // children: [
         //   {

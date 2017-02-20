@@ -11,6 +11,7 @@ import { Component, Output, Input, EventEmitter } from '@angular/core';
       <md-card-content>
         <md-input
           placeholder="Search for a patient"
+          id="search-component"
           [value]="query"
           (keyup)="search.emit($event.target.value)">
         </md-input>

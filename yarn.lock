@@ -232,6 +232,10 @@ angular2-template-loader@~0.6.0:
   dependencies:
     loader-utils "^0.2.15"
 
+angular2@^2.0.0-beta.2:
+  version "2.0.0-beta.21"
+  resolved "https://registry.yarnpkg.com/angular2/-/angular2-2.0.0-beta.21.tgz#78643e590641526a2596dcd1d5cca3a5509ed76d"
+
 ansi-align@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/ansi-align/-/ansi-align-1.1.0.tgz#2f0c1658829739add5ebb15e6b0c6e3423f016ba"
@@ -1521,9 +1525,17 @@ es6-promise-loader@~1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/es6-promise-loader/-/es6-promise-loader-1.0.2.tgz#71d47086eaf823ad179c12d0867cb8382050775d"
 
+es6-promise@^3.0.2:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-3.3.1.tgz#a08cdde84ccdbf34d027a1451bc91d4bcd28a613"
+
 es6-promise@~4.0.3, es6-promise@~4.0.5:
   version "4.0.5"
   resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-4.0.5.tgz#7882f30adde5b240ccfa7f7d78c548330951ae42"
+
+es6-shim@^0.33.13:
+  version "0.33.13"
+  resolved "https://registry.yarnpkg.com/es6-shim/-/es6-shim-0.33.13.tgz#894fb83d2c2e9378c8ec23659f2b62b28f994225"
 
 escape-html@~1.0.3:
   version "1.0.3"
@@ -3017,6 +3029,17 @@ map-stream@~0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/map-stream/-/map-stream-0.1.0.tgz#e56aa94c4c8055a16404a0674b78f215f7c8e194"
 
+materializecss@^1.0.11:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/materializecss/-/materializecss-1.0.11.tgz#a4d2bc675c335a9c99ce3f87f9969cb9ee0974f9"
+  dependencies:
+    angular2 "^2.0.0-beta.2"
+    es6-promise "^3.0.2"
+    es6-shim "^0.33.13"
+    reflect-metadata "^0.1.2"
+    rxjs "^5.0.0-beta.0"
+    zone.js "^0.5.10"
+
 math-expression-evaluator@^1.2.14:
   version "1.2.14"
   resolved "https://registry.yarnpkg.com/math-expression-evaluator/-/math-expression-evaluator-1.2.14.tgz#39511771ed9602405fba9affff17eb4d2a3843ab"
@@ -4396,7 +4419,7 @@ ripemd160@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/ripemd160/-/ripemd160-1.0.1.tgz#93a4bbd4942bc574b69a8fa57c71de10ecca7d6e"
 
-rxjs@5.0.3, rxjs@^5.0.1:
+rxjs@5.0.3, rxjs@^5.0.0-beta.0, rxjs@^5.0.1:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.0.3.tgz#fc8bdf464ebf938812748e4196788f392fef9754"
   dependencies:
@@ -5562,6 +5585,12 @@ yeast@0.1.2:
 yn@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/yn/-/yn-1.2.0.tgz#d237a4c533f279b2b89d3acac2db4b8c795e4a63"
+
+zone.js@^0.5.10:
+  version "0.5.15"
+  resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.5.15.tgz#f195b56ad0b7874c3060c3a5e61b4e234ea1b059"
+  dependencies:
+    es6-promise "^3.0.2"
 
 zone.js@^0.7.6:
   version "0.7.6"

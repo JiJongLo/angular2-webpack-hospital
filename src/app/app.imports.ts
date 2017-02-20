@@ -5,6 +5,7 @@ import { MaterialModule } from '@angular/material';
 import { EffectsModule } from '@ngrx/effects';
 import { RouterStoreModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
+import { MaterializeModule } from 'ng2-materialize';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { useLogMonitor } from '@ngrx/store-log-monitor';
 
@@ -32,6 +33,7 @@ export const APP_IMPORTS = [
   EffectsModule.run(PatientEffects),
   EffectsModule.run(DiagnosisEffects),
   MaterialModule.forRoot(),
+  MaterializeModule.forRoot(),
   ReactiveFormsModule,
   HomeModule,
   SharedModule,

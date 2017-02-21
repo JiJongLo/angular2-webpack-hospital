@@ -1,7 +1,15 @@
 <div class="container">
   <div class="row">
     <div class="col s12">
-      <patient-search [query]="searchQuery$ | async" [searching]="loading$ | async" (search)="search($event)"></patient-search>
+      <patient-search [query]="searchQuery$ | async" (search)="search($event)"></patient-search>
+      <section class="example-section" *ngIf="loading$ | async">
+        <md-progress-bar
+          class="example-margin"
+          [mode]="'indeterminate'"
+          [value]="value"
+         >
+        </md-progress-bar>
+      </section>
     </div>
   </div>
   <div class="row">

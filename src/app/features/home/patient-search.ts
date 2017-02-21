@@ -15,9 +15,6 @@ import { Component, Output, Input, EventEmitter } from '@angular/core';
           [value]="query"
           (keyup)="search.emit($event.target.value)">
         </md-input>
-        <md-spinner [class.show]="searching">
-        
-      </md-spinner>
       </md-card-content>
     </md-card>
   `,
@@ -52,6 +49,5 @@ import { Component, Output, Input, EventEmitter } from '@angular/core';
 })
 export class PatientSearchComponent {
   @Input() query: string = '';
-  @Input() searching = false;
   @Output() search = new EventEmitter<string>();
 }

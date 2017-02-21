@@ -22,7 +22,6 @@ body {
   padding: 0;
   box-shadow: none;
   box-sizing: content-box;
-  transition: all 1s;
 }
 :host/deep/ input {
   background-color: transparent;
@@ -39,7 +38,7 @@ body {
   transition: none;
 }
 
-:host/deep/ input:focus {
+:host/deep/ input[type=text]:focus {
   border-bottom: none;
   box-shadow: none;
 }

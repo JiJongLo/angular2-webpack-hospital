@@ -8,6 +8,7 @@ import { AppState,
          getFilteredPatientEntities,
          getPatientSearchQuery,
          getPatientSearchLoading } from '../../reducers';
+import { debounce } from 'lodash';
 
 @Component({
   moduleId: module.id,

@@ -7,7 +7,6 @@ export interface PatientsState {
   filteredPatients: Patient[];
   loading: boolean;
   query: string;
-  currentPatient: Patient;
   loaded: boolean;
 };
 
@@ -16,7 +15,6 @@ export const initialState: PatientsState = {
   filteredPatients: [],
   loading: false,
   query: '',
-  currentPatient: null,
   loaded: false
 };
 
@@ -59,4 +57,4 @@ export const getEntities = (state: PatientsState) => state.listPatients;
 export const getFilteredEntities = (state: PatientsState) => state.filteredPatients;
 export const getSearchQuery = (state: PatientsState) => state.query;
 export const getSearchLoading = (state: PatientsState) => state.loading;
-export const getSearchCurrentPatient = (state: PatientsState) => state.currentPatient;
+export const getLoadedEntity = (state: PatientsState) => state.loaded;

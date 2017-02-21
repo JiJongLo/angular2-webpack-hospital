@@ -15,4 +15,8 @@ export class PatientService extends RequestBase {
     return this.http.get(`${API_BASE_URL}/assets/patients.json`)
       .map(res => res.json());
   }
+  getPatientById(id: string): Observable<string> {
+    return this.http.get(`${API_BASE_URL}/assets/patients.json`)
+      .map(res => res.json());
+  }
 }

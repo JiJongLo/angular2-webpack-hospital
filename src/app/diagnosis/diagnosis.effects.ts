@@ -4,7 +4,7 @@ import { Actions, Effect } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
 import { Store } from '@ngrx/store';
 import { DiagnosesActions, actionTypes } from './diagnosis.actions';
-import { AppState, getPatientEntities, getLoadedPatients } from '../reducers';
+import { AppState, getPatientEntities, isLoadedPatients } from '../reducers';
 import { DiagnosesService } from './diagnosis.service';
 import { PatientActions } from '../patient/patient.actions';
 import 'rxjs/add/operator/catch';

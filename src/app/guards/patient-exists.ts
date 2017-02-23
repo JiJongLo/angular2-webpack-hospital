@@ -56,8 +56,8 @@ export class PatientExistsGuard implements CanActivate {
    */
   hasPatientInAPI(id: string): Observable<boolean> {
     return this.patientService.getPatientById(id)
-      .do((patients) => this.store.dispatch(this.patientActions.getPatientsSuccess(patients)))
-      .map(book => !!book)
+      .do((res) => this.store.dispatch(this.patientActions.getPatientsSuccess(res)))
+      .map(patients => !!patients)
       .catch(() => {
         this.router.navigate(['/404']);
         return of(false);
@@ -70,6 +70,7 @@ export class PatientExistsGuard implements CanActivate {
    * API.
    */
   hasPatient(id: string): Observable<boolean> {
+    console.log(id, 'hasPatient')
     return this.hasPatientInStore(id)
       .switchMap(inStore => {
         if (inStore) {

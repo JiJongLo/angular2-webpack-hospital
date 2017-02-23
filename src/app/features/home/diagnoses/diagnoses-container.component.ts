@@ -1,3 +1,4 @@
+import '@ngrx/core/add/operator/select';
 import { Component, ChangeDetectionStrategy, OnDestroy }      from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';

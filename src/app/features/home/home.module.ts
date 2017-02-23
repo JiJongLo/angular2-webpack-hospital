@@ -12,7 +12,7 @@ import { DiagnosesService } from '../../diagnosis/diagnosis.service';
 import { DiagnosesActions } from '../../diagnosis/diagnosis.actions';
 import { PatientListComponent, PatientSearchComponent, PatientPreviewComponent } from './index';
 import { DiagnosesContainerComponent } from './diagnoses';
-
+import { PatientExistsGuard } from '../../guards/patient-exists';
 
 @NgModule({
   imports: [
@@ -31,6 +31,12 @@ import { DiagnosesContainerComponent } from './diagnoses';
     PatientListComponent
   ],
   exports: [HomeContainerComponent],
-  providers: [PatientActions, PatientService, DiagnosesService, DiagnosesActions]
+  providers: [
+    PatientActions,
+    PatientService,
+    DiagnosesService,
+    DiagnosesActions,
+    PatientExistsGuard
+  ]
 })
 export class HomeModule { }

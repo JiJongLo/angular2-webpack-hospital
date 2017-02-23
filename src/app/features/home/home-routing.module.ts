@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HomeContainerComponent } from './home-container.component';
 import { DiagnosesContainerComponent, DiagnosesListComponent } from './diagnoses/index';
+import { PatientExistsGuard } from '../../guards/patient-exists';
 
 @NgModule({
   imports: [
@@ -12,6 +13,7 @@ import { DiagnosesContainerComponent, DiagnosesListComponent } from './diagnoses
       {
         path: 'patients/:id',
         component: DiagnosesContainerComponent,
+        canActivate: [ PatientExistsGuard ]
         // children: [
         //   {
         //     path: '',

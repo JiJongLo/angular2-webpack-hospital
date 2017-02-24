@@ -2,6 +2,7 @@ import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/find';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/let';
@@ -46,8 +47,9 @@ export class PatientExistsGuard implements CanActivate {
    */
   hasPatientInStore(id: string): Observable<boolean> {
     return this.store.select(fromRoot.getPatientEntities)
-      .map(entity => !!entity[id])
-      .take(1);
+      .flatMap(data => data)
+      .find((data)  => data.id === +id)
+      .map(data => !!data);
   }
 
   /**
@@ -70,7 +72,6 @@ export class PatientExistsGuard implements CanActivate {
    * API.
    */
   hasPatient(id: string): Observable<boolean> {
-    console.log(id, 'hasPatient')
     return this.hasPatientInStore(id)
       .switchMap(inStore => {
         if (inStore) {

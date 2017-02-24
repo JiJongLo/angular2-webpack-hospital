@@ -9,6 +9,7 @@ import { AppState } from '../reducers';
 import { PatientService } from './patient.service';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
@@ -29,6 +30,7 @@ export class PatientEffects {
   @Effect()
   get$ = this.actions$
     .ofType(actionTypes.REQUEST_PATIENTS)
+    .startWith(this.patientActions.requestPatients())
     .switchMap(() => this.patientService.getPatients()
       .mergeMap((res: any) => of(
         this.patientActions.getPatientsSuccess(res)

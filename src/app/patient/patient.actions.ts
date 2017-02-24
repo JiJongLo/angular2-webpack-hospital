@@ -24,7 +24,7 @@ export class PatientActions {
     };
   }
 
-  getPatientsSuccess(res: Response): Action {
+  getPatientsSuccess(res: Patient[]): Action {
     return {
       type: actionTypes.GETTING_PATIENTS_SUCCESS,
       payload: res

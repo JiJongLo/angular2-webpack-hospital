@@ -92,6 +92,7 @@
     "@ngrx/store-devtools": "3.2.2",
     "@ngrx/store-log-monitor": "3.0.2",
     "core-js": "2.4.1",
+    "e2e4": "^2.0.1",
     "hammerjs": "~2.0.8",
     "lodash": "^4.17.4",
     "materializecss": "^1.0.11",
